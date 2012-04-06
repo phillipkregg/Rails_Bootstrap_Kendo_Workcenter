@@ -1,4 +1,11 @@
-class JobsController < ApplicationController
+class JobsController < ApplicationController  
+  
+  before_filter :authenticate_user!
+  
+  layout 'main_layout'
+  
+  
+  
   # GET /jobs
   # GET /jobs.json
   def index
@@ -33,8 +40,9 @@ class JobsController < ApplicationController
   end
 
   # GET /jobs/1/edit
-  def edit
+  def edit    
     @job = Job.find(params[:id])
+    render :layout => "job_layout"
   end
 
   # POST /jobs

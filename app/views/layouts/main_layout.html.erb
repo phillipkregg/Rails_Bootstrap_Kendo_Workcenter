@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>KendoUITest</title>
+  <%= stylesheet_link_tag 'application.css.scss' %>
+  <%= stylesheet_link_tag 'bootstrap.min.css' %>
+  <style type="text/css">
+   body {
+     padding-top: 60px;
+     padding-bottom: 40px;
+   }
+  </style>  
+  <%= stylesheet_link_tag 'bootstrap-responsive.min.css' %>
+  <%= stylesheet_link_tag 'kendo.common.min.css' %>
+  <%= stylesheet_link_tag 'kendo.silver.min.css' %>
+  
+  
+  
+  <%= javascript_include_tag "application", "kendo.all.min.js" %>
+  <%= javascript_include_tag "bootstrap.min.js" %>  
+  
+  
+  
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	
+	<% if flash[:notice] || flash[:alert]%>
+	<p id="notice" class="alert"><%= notice || alert %></p>
+	<% end %>
+
+    
+    
+   <%= render 'shared/header' %> 
+    
+	
+    
+    <div class="modal fade" id="logoutModal">
+  <div class="modal-header">
+    <a class="close" data-dismiss="modal">×</a>
+    <h3>Modal header</h3>
+  </div>
+  <div class="modal-body">
+    <p>One fine body…</p>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn">Close</a>    
+    <%= link_to "Logout", destroy_user_session_path, :method => :delete, :class => "btn btn-primary" %>
+  </div>
+</div>
+    
+    
+
+    <div class="container-fluid">
+      
+      <%= yield %>
+
+      <hr>
+
+      <footer>
+        <p>© Company 2012</p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+    
+  
+
+</body>
+
+</body>
+</html>

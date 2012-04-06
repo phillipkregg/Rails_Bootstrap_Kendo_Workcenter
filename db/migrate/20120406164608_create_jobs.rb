@@ -7,7 +7,7 @@ class CreateJobs < ActiveRecord::Migration
       t.string :job_type
       t.string :insurance_company
       t.string :age
-      t.datetime :loss_date
+      t.date :loss_date
       t.string :job_number
       t.string :job_status
       t.string :dispatch_status

@@ -1,6 +1,6 @@
 <h1>Listing jobs</h1>
 
-<table>
+<table class="table">
   <tr>
     <th>Last name</th>
     <th>First name</th>
@@ -35,13 +35,13 @@
     <td><%= job.caller %></td>
     <td><%= job.occupant %></td>
     <td><%= job.production_manager %></td>
-    <td><%= link_to 'Show', job %></td>
-    <td><%= link_to 'Edit', edit_job_path(job) %></td>
-    <td><%= link_to 'Destroy', job, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Show', job, :class => "btn" %></td>
+    <td><%= link_to 'Edit', edit_job_path(job), :class => "btn" %></td>
+    <td><%= button_to 'Destroy', job, confirm: 'Are you sure?', method: :delete, :class => "btn btn-danger" %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Job', new_job_path %>
+<%= button_to 'New Job', new_job_path, :class => "btn btn-primary" %>
