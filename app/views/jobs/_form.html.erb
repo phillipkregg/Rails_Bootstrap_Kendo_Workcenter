@@ -1,0 +1,69 @@
+<%= form_for(@job) do |f| %>
+  <% if @job.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@job.errors.count, "error") %> prohibited this job from being saved:</h2>
+
+      <ul>
+      <% @job.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :loss_city %><br />
+    <%= f.text_field :loss_city %>
+  </div>
+  <div class="field">
+    <%= f.label :job_type %><br />
+    <%= f.text_field :job_type %>
+  </div>
+  <div class="field">
+    <%= f.label :insurance_company %><br />
+    <%= f.text_field :insurance_company %>
+  </div>
+  <div class="field">
+    <%= f.label :age %><br />
+    <%= f.text_field :age %>
+  </div>
+  <div class="field">
+    <%= f.label :loss_date %><br />
+    <%= f.datetime_select :loss_date %>
+  </div>
+  <div class="field">
+    <%= f.label :job_number %><br />
+    <%= f.text_field :job_number %>
+  </div>
+  <div class="field">
+    <%= f.label :job_status %><br />
+    <%= f.text_field :job_status %>
+  </div>
+  <div class="field">
+    <%= f.label :dispatch_status %><br />
+    <%= f.text_field :dispatch_status %>
+  </div>
+  <div class="field">
+    <%= f.label :caller %><br />
+    <%= f.text_field :caller %>
+  </div>
+  <div class="field">
+    <%= f.label :occupant %><br />
+    <%= f.text_field :occupant %>
+  </div>
+  <div class="field">
+    <%= f.label :production_manager %><br />
+    <%= f.text_field :production_manager %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

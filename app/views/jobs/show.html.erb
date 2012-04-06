@@ -1,0 +1,70 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Last name:</b>
+  <%= @job.last_name %>
+</p>
+
+<p>
+  <b>First name:</b>
+  <%= @job.first_name %>
+</p>
+
+<p>
+  <b>Loss city:</b>
+  <%= @job.loss_city %>
+</p>
+
+<p>
+  <b>Job type:</b>
+  <%= @job.job_type %>
+</p>
+
+<p>
+  <b>Insurance company:</b>
+  <%= @job.insurance_company %>
+</p>
+
+<p>
+  <b>Age:</b>
+  <%= @job.age %>
+</p>
+
+<p>
+  <b>Loss date:</b>
+  <%= @job.loss_date %>
+</p>
+
+<p>
+  <b>Job number:</b>
+  <%= @job.job_number %>
+</p>
+
+<p>
+  <b>Job status:</b>
+  <%= @job.job_status %>
+</p>
+
+<p>
+  <b>Dispatch status:</b>
+  <%= @job.dispatch_status %>
+</p>
+
+<p>
+  <b>Caller:</b>
+  <%= @job.caller %>
+</p>
+
+<p>
+  <b>Occupant:</b>
+  <%= @job.occupant %>
+</p>
+
+<p>
+  <b>Production manager:</b>
+  <%= @job.production_manager %>
+</p>
+
+
+<%= link_to 'Edit', edit_job_path(@job) %> |
+<%= link_to 'Back', jobs_path %>

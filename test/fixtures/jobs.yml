@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  last_name: MyString
+  first_name: MyString
+  loss_city: MyString
+  job_type: MyString
+  insurance_company: MyString
+  age: MyString
+  loss_date: 2012-04-06 11:46:08
+  job_number: MyString
+  job_status: MyString
+  dispatch_status: MyString
+  caller: MyString
+  occupant: MyString
+  production_manager: MyString
+
+two:
+  last_name: MyString
+  first_name: MyString
+  loss_city: MyString
+  job_type: MyString
+  insurance_company: MyString
+  age: MyString
+  loss_date: 2012-04-06 11:46:08
+  job_number: MyString
+  job_status: MyString
+  dispatch_status: MyString
+  caller: MyString
+  occupant: MyString
+  production_manager: MyString
