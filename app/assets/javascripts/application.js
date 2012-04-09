@@ -31,61 +31,73 @@ $(document).ready(function(){
 
 
 
-	// Kendo viewmodel and datasource
-	var viewModel = kendo.observable({
-	    productsSource: new kendo.data.DataSource({
-	        transport: {
-	            read: {
-	                url: crudServiceBaseUrl + "/jobs",
-	                dataType: "json"
-	            },
-	            update: {
-	                type: "PUT"
-	                
-	            },
-	            destroy: {
-	                type: "DELETE"
-	            },
-	            parameterMap: function(options, operation) {
-	                if (operation !== "read" && options.models) {
-	                    return {
-	                        models: kendo.stringify(options.models)
-	                    };
-	                }
-	                return options;
-	            }
-	        },
-	        batch: true,
-	        schema: {
-	            model: {
-	                id: "id"
-	            }
-	        }
-	    }),
-	    selectedProduct: null,
-	    hasChanges: false,
-	    save: function() {
-	        this.productsSource.sync();
-	        this.set("hasChanges", false);
-	    },
-	    remove: function() {
-	        if (confirm("Are you sure you want to delete this product?")) {
-	            this.productsSource.remove(this.selectedProduct);
-	            this.set("selectedProduct", this.productsSource.view()[0]);
-	            this.change();
-	        }
-	    },
-	    showForm: function() {
-	       return this.get("selectedProduct") !== null;
-	    },
-	    change: function() {
-	        this.set("hasChanges", true);
-	    }
+	// Kendo MVVM
+	var jobViewModel = kendo.observable({
+		
+				
+		
 	});
 	
-	kendo.bind($("#form-container"), viewModel);
+	
+	
+	var jobSource = new kendo.data.DataSource({
+			transport: {
+				read: {
+					url: "/jobs",
+					dataType: "json"
+				},
+				update: {
+					url: "/jobs.json",
+					type: "PUT"
+				},
+				destroy: {
+					type: "DELETE"
+				},
+				create: {
+					url: "/jobs",
+					dataType: "json",
+					contentType: "application/json",
+					type: "POST"
+				},
+				parameterMap: function(job, type) {
+                        if (type === "create" || type === "update") {
+                            return JSON.stringify({ job: job });
+                        }
+                    }
+				
+			},
+			
+			//batch: true,
+			pageSize: 5,
+			schema: {
+				model: {
+					id: "id",
+					fields: {						
+						last_name: { validation: {required: true}, nullable: false },
+						first_name: { validation: {required: true}, nullable: false }
+						
+						
+					}
+				}
+			}		
+		})
+	
+	
+	$("#job-grid").kendoGrid({
+		dataSource: jobSource,
+		navigatable: true,
+		pageable: true,
+		height: 300,
+		toolbar: ["create", "save", "cancel"],
+		columns: [
+			{title: "Last Name", field: "last_name"},
+			{title: "First Name", field: "first_name"}
+		],
+		editable: true,
+		sortable: true
+	});
 
-
+	
 
 
 
