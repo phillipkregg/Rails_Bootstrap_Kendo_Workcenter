@@ -1,13 +1,13 @@
 <div class="row-fluid">
   <div class="span3">
     <div class="well sidebar-nav">
-      <ul class="nav nav-list">
+      <ul id="left-nav" class="nav nav-list">
         <li class="nav-header">Job Options</li>
         <li class="active"><a href="#">FNOL</a></li>
         <li><a href="#">Initial Inspection</a></li>
         <li><a href="#">Rooms</a></li>
         <li><a href="#">Zones</a></li>
-        <li>Validation</li>
+        <li><a href="#">Validation</a></li>
         <li><a href="#">Monitoring</a></li>
         <li><a href="#">Drawing</a></li>
         <li><a href="#">Job Diary</a></li>
@@ -26,3 +26,47 @@
 
 
 </div>
+
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+	
+	var make_button_active = function()
+	 {
+	  //Get item siblings
+	  var siblings = ($(this).siblings());
+ 	
+	  //Remove active class on all buttons
+	  siblings.each(function (index)
+	    {
+	      $(this).removeClass('active');
+	    }
+	  )
+ 		
+	  //Add the clicked button class
+	  $(this).addClass('active');
+	}
+	
+	$("#left-nav li").click(make_button_active);
+	
+	
+});
+	 
+ 	
+	
+	
+	
+</script>
+
+
+
+
+
+
+
+
+
+
+
+

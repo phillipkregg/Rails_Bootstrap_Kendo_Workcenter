@@ -2,8 +2,114 @@
 
 <%= render 'form' %>
 
+<div id="main-content">
+	
+	<div id="fnol_tabs">
+	
+		<ul>
+			<li class="k-state-active">Contact Information</li>
+			<li>Job Details</li>
+			<li>Site Assessment</li>
+		</ul>
+		
+		<div>
+			<label>ID</label>
+			<span data-bind="text:selectedJob.id"></span>
+		</div>
+	  
+	</div>
+	
+	
+</div>
+
+
+
 
 <div id="job-grid"></div>
+
+
+
+<script id="fnol-template" type="text/x-kendo-template">
+	
+</script>
+
+
+<script id="initial-inspection-template" type="text/x-kendo-template">
+	
+</script>
+
+
+
+
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		
+		var fnolViewModel = kendo.observable({
+			jobSource: new kendo.data.DataSource({
+				transport: {
+					read: {
+						url: "/jobs",
+						dataType: "json"
+					},
+					update: {
+						url: "/jobs.json",
+						type: "PUT"
+					},
+					destroy: {
+						type: "DELETE"
+					},
+					create: {
+						url: "/jobs",
+						dataType: "json",
+						contentType: "application/json",
+						type: "POST"
+					},
+					parameterMap: function(job, type) {
+	                        if (type === "create" || type === "update") {
+	                            return JSON.stringify({ job: job });
+	                        }
+	                    }
+					
+				},
+			
+				//batch: true,
+				//pageSize: 5,
+				schema: {
+					model: {
+						id: "id"					
+					}
+				}	
+				
+			})// end datasource	
+			
+			
+			selectedJob = id;
+				
+			
+		});// end fnolViewModel
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	});// end document.ready
+	
+	kendo.bind($("#main-content"), fnolViewModel);
+	
+</script>
+
+
+
+
 
 
 

@@ -8,6 +8,7 @@ gem 'rails', '3.1.3'
 
 gem 'devise'
 gem 'pg'
+gem "ejs", "~> 1.0.0"
 
 
 group :development do

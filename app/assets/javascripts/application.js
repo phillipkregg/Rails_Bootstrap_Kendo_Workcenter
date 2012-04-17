@@ -16,28 +16,6 @@ $(document).ready(function(){
 	
 	$('#fnol_tabs').kendoTabStrip();
 
-	var closeLogout = function(){
-		$('#logout_modal.btn-primary').click(function(e){
-			
-			$('#logout_modal').modal('hide');
-		})
-		
-	}
-	
-	var openLogout = function(){
-		
-		$('#logout_modal').modal('show');
-	}
-
-
-
-	// Kendo MVVM
-	var jobViewModel = kendo.observable({
-		
-				
-		
-	});
-	
 	
 	
 	var jobSource = new kendo.data.DataSource({
@@ -98,6 +76,31 @@ $(document).ready(function(){
 	});
 
 	
+
+	// Backbone code
+	
+	var Job = Backbone.Model.extend({
+		
+	});
+
+	
+	var Jobs = Backbone.Collection.extend({
+		model: Job,
+		url: '/jobs/'
+	});
+	
+	
+	//Jobs.fetch();
+	alert(Jobs.fetch());
+	
+
+
+
+
+
+
+
+
 
 
 
